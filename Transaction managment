@@ -1,0 +1,43 @@
+create table account( act no varchar2(10),act name varchar2(10),act balance number(10),act dob date);
+create table account_branch (act no varchar2(10),act name varchar2(10),act branch varchar2(10));
+create table account_city(act no varchar2(10),act name varchar2(10),act cityvarchar2(10));
+select * from account ;
+select* from account branch;
+select * from account city;
+DECLARE
+xact_no:= :enter account number;
+op:=: 1deposit_2withdrawal_3balance;
+select act balance ito xact_balance
+from account
+where act_no=xact_no;
+IF(opt=1) THEN
+deposit:=:enter deposit amount;
+update account
+ set act_balance= act_balance+deposit
+ from account
+ where act_no=xact_no;
+ IF(OPT =1) THEN
+ deposit:=enter deposit number;
+ update account
+  set act_balance= act_balance+deposit
+where act_noxact_o;
+xact_balance:=xact_balance+deposit;
+dbms_output.put_line('rs.' ||deposit||' has been creditedd in account');
+dbms_output.put_line('your final balance is rs.'||xact_balance);
+ELSEIF(opt=2)THEN
+withdrawal:=:enter withdraw amount;
+ if(withdrawal<=xact balance) THEN
+ update account
+   set act_balance=act_balance-withdrawal;
+   where act_no=xact_no;
+   xactt_balance:=xact-withdrawal;
+   dbms_output.put_line('rs.'||withdrawal amount is greatear than balance');
+   dbms_output.put_line(your transaction failed');
+   dbms_output.put_line('your final balance is rs.'||xact balance);
+   END IF;
+ ELSE
+  dbms_output.put_line('your balance is rs.||xact_balance);
+  END IF;
+  
+END;
+   
